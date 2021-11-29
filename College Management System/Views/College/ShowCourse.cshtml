@@ -1,0 +1,48 @@
+﻿@model IEnumerable<College_Management_System.Models.Cours>
+@{
+    ViewBag.Title = "ShowCourse";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    table {
+        background-color: aqua;
+    }
+</style>
+<h2>ShowCourse</h2>
+<div class="row">
+    <table class="table table table-bordered">
+
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Teacher</th>
+                <th>Course Grade</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.students</td>
+                    <td>@item.C_teacher</td>
+                    <td>@item.course_grade</td>
+                    
+
+                    <td>
+                        @Html.ActionLink("Edit", "EditCourse", new { id = item.Id })
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Delete", "DeleteCourse", new { id = item.Id }, new { onclick = "return confirm('do u want to delete?');" })
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

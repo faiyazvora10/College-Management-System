@@ -1,0 +1,40 @@
+﻿@model College_Management_System.Models.Teacher
+@{
+    ViewBag.Title = "AddTeach";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+<h2>AddTeach</h2>
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("AddTeach", "College", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            <div>
+                @ViewBag.msg
+            </div>
+            <hr />
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.name, new { @class = "form-control", @placeholder = "Name" })
+            </div>
+            <hr />
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.birthday, new { @class = "form-control", @placeholder = "Birthday" })
+            </div>
+            <hr />
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.salary, new { @class = "form-control", @placeholder = "Salary" })
+            </div>
+            <hr />
+
+            <div>
+                <button type="submit" class="btn btn-primary btn-block btn-user">Add</button>
+            </div>
+        }
+    </div>
+</div>
+
+

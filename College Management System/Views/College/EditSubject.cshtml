@@ -1,0 +1,49 @@
+﻿@model College_Management_System.Models.Subject
+@{
+    ViewBag.Title = "AddSubject";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>AddSubject</h2>
+
+<div class="row">
+    <div class="col-md-12">
+
+        @using (Html.BeginForm("EditSubject", "College", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            <div>
+                @ViewBag.msg
+            </div>
+            <div class="form-group">
+                @Html.HiddenFor(m => m.Id)
+                @Html.TextBoxFor(m => m.coursename, new { @class = "form-control", @placeholder = "Course Name" })
+
+            </div>
+            <hr />
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.teacher_name, new { @class = "form-control", @placeholder = "Teacher Name" })
+
+            </div>
+            <hr />
+
+            <div class="form-group">
+                @Html.TextBoxFor(m => m.subject_grade, new { @class = "form-control", @placeholder = "Subject Grade" })
+
+            </div>
+            <hr />
+
+
+            <div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-user">Add</button>
+            </div>
+
+
+        }
+    </div>
+</div>
+
+
+
+
